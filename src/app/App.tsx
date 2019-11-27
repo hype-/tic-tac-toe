@@ -51,20 +51,20 @@ export function App() {
         if (hasCharacterWon(playerBoard, player.character)) {
           dispatch(setWinnerAction(Winner.PLAYER))
         } else {
-          dispatch(setTurnAction(Turn.COMPUTER))
+          const emptyPositionsCount = getEmptyPositionsCount(playerBoard)
 
-          setTimeout(() => {
-            const emptyPositionsCount = getEmptyPositionsCount(playerBoard)
+          if (emptyPositionsCount > 0) {
+            dispatch(setTurnAction(Turn.COMPUTER))
 
-            if (emptyPositionsCount > 0) {
-              const computerCharacter = player.character === Character.X ? Character.O : Character.X
+            const computerCharacter = player.character === Character.X ? Character.O : Character.X
 
-              const computerBoard = makeComputerMove(
-                playerBoard,
-                computerCharacter,
-                emptyPositionsCount,
-              )
+            const computerBoard = makeComputerMove(
+              playerBoard,
+              computerCharacter,
+              emptyPositionsCount,
+            )
 
+            setTimeout(() => {
               dispatch(setBoardAction(computerBoard))
 
               if (hasCharacterWon(computerBoard, computerCharacter)) {
@@ -72,10 +72,10 @@ export function App() {
               } else {
                 dispatch(setTurnAction(Turn.PLAYER))
               }
-            } else {
-              dispatch(setWinnerAction(Winner.TIE))
-            }
-          }, COMPUTER_TURN_TIME)
+            }, COMPUTER_TURN_TIME)
+          } else {
+            dispatch(setWinnerAction(Winner.TIE))
+          }
         }
       }
     },
