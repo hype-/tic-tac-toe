@@ -1,13 +1,18 @@
 # Tic tac toe
 
-## Requirements
+## Running in production
 
-You'll probably want to use Docker to run this app.
+You'll need Docker to run this app.
 
-## Installation
+`docker-compose up` will start the app at http://localhost:5000
 
-`docker-compose up` will start the app at http://localhost:3000
+## Running in development
 
-## Running tests
+You'll need to have `node` and `yarn` (or `npm`).
 
-Run linting and TypeScript checks with `yarn test` (in the Docker container).
+- `yarn` to install packages
+- `yarn start` will start the app at http://localhost:3000
+
+### Running tests
+
+Run linting and TypeScript checks with `yarn test`.

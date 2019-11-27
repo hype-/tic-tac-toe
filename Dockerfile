@@ -8,5 +8,7 @@ RUN yarn
 
 COPY . .
 
-EXPOSE 3000
-CMD [ "yarn", "start" ]
+RUN yarn build --production
+
+EXPOSE 5000
+CMD [ "yarn", "serve", "-s", "build" ]
