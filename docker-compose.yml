@@ -2,13 +2,8 @@ version: '3.7'
 
 services:
   frontend:
-    image: node:13
     build:
       context: .
       dockerfile: Dockerfile
-    volumes:
-      - '.:/app'
     ports:
-      - '5000:5000'
-    environment:
-      - NODE_ENV=production
+      - '8080:80'

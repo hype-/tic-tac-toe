@@ -4,7 +4,7 @@
 
 You'll need Docker to run this app.
 
-`docker-compose up` will start the app at http://localhost:5000
+`docker-compose up` will start the app at http://localhost:8080
 
 ## Running in development
 
