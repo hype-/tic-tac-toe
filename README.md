@@ -2,13 +2,12 @@
 
 ## Requirements
 
-You'll need Node and `yarn` (or `npm`) to run this game.
+You'll probably want to use Docker to run this app.
 
 ## Installation
 
-- `yarn`
-- `yarn start`
+`docker-compose up` will start the app at http://localhost:3000
 
-## Test
+## Running tests
 
-Run linting and TypeScript checks with `yarn test`.
+Run linting and TypeScript checks with `yarn test` (in the Docker container).
